@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Crystal Clicker</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap!-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
+
+	<!-- jquery delivered fresh by Google! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div>
+			<div>
+				<div class="row">Game Title</div>
+			</div>
+			<div>
+				<div class="row">Instructions</div>
+			</div>
+			<div>
+				<div class="row">Number to Guess:
+					<span id="target"></span>
+				</div>
+
+			</div>
+			<div>
+				<div class="row">
+					<div class="col-md-3">
+						<button type="button" class="btn btn-primary btn-block" value="0" id="first">Primary</button>
+					</div>
+					<div class="col-md-3">
+						<button type="button" class="btn btn-secondary btn-block" value="0" id="second">Secondary</button>
+					</div>
+					<div class="col-md-3">
+						<button type="button" class="btn btn-success btn-block" value="0" id="third">Success</button>
+					</div>
+					<div class="col-md-3">
+						<button type="button" class="btn btn-danger btn-block" value="0" id="fourth">Danger</button>
+					</div>
+				</div>
+
+			</div>
+			<div>Your score:
+				<span id="score"></span>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<script>
+		$(document).ready(function () {
+			//this variable holds our target number
+			var magicNumber = Math.floor((Math.random() * 120) + 19);
+			console.log(magicNumber);
+			$("#target").text(magicNumber);
+
+			//this should give us a random value for each crystal
+			var crystalValue = Math.floor((Math.random() * 12) + 1);
+			var crystalValue2 = Math.floor((Math.random() * 12) + 1);
+			var crystalValue3 = Math.floor((Math.random() * 12) + 1);
+			var crystalValue4 = Math.floor((Math.random() * 12) + 1);
+
+			//this variable is the player's score, total what have you
+			//set to zero because apparerntly you can't increment otherwise
+			var playerScore = 0;
+
+			//prints to the page
+			$("#score").text(playerScore);
+
+			//this should set the button's values
+			$("#first").attr("value", crystalValue)
+			$("#second").attr("value", crystalValue2)
+			$("#third").attr("value", crystalValue3)
+			$("#fourth").attr("value", crystalValue4)
+
+			console.log(crystalValue);
+			console.log(crystalValue2);
+			console.log(crystalValue3);
+			console.log(crystalValue4);
+
+
+			function crystalClick() {
+
+				numString = $("button").attr("value");
+				cryVal = parseInt(numString);
+				newNum = playerScore + cryVal;
+				$("#score").html(newNum);
+			};
+
+
+
+			$(".btn").click(crystalClick)
+
+
+
+			//	numString = $("button").attr("value");
+			//	crysVal = parseInt(numString);
+			//	newNum = playerScore + crysVal;
+
+			//});
+
+			//$("#score").text(newNum);
+
+
+		});
+
+	</script>
+</body>
+
+</html>
