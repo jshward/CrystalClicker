@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
 	var wins = 0
@@ -10,12 +11,12 @@ $(document).ready(function () {
 	var magicNumber
 
 	//this function should give us our target nuumber
-	function targetNumber() {
-		var magicNumber = parseInt(Math.floor((Math.random() * 120) + 19));
-		console.log(magicNumber);
 
-		$("#target").text(magicNumber);
-	};
+	var magicNumber = parseInt(Math.floor((Math.random() * 120) + 19));
+	console.log(magicNumber);
+
+	$("#target").text(magicNumber);
+
 
 	//this should give us a random value for each crystal
 	function values() {
@@ -55,7 +56,17 @@ $(document).ready(function () {
 	};
 
 	function initialize() {
-		targetNumber()
+
+		playerScore = 0
+		values()
+		variables()
+		score()
+		buttonValues()
+	};
+	function reset() {
+		magicNumber = parseInt(Math.floor((Math.random() * 120) + 19));
+		$("#target").text(magicNumber);
+		playerScore = 0
 		values()
 		variables()
 		score()
@@ -68,6 +79,10 @@ $(document).ready(function () {
 		numString = $(this).val();
 		cryVal = parseInt(numString);
 		playerScore = parseInt(playerScore + cryVal);
+		$("#score").html(playerScore);
+		console.log(magicNumber);
+		console.log(playerScore);
+
 
 
 		if (playerScore === magicNumber) {
@@ -75,6 +90,7 @@ $(document).ready(function () {
 
 			wins++;
 			$("#wins").html(wins);
+			reset()
 
 
 		}
@@ -83,8 +99,9 @@ $(document).ready(function () {
 
 			losses++;
 			$("#losses").html(losses);
+			reset()
 		};
-		$("#score").html(playerScore);
+
 
 	};
 

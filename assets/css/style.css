@@ -1,0 +1,10 @@
+body {
+    background: url("assets/images/spiration.png");
+}
+.content{ width: 960px}
+
+button{width: 150px}
+.left{
+	float: left;
+}
+.right{float: right}

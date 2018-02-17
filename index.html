@@ -5,39 +5,58 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Crystal Clicker</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Bootstrap!-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	 crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<!-- jquery delivered fresh by Google! -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="assets/javascript/game.js"></script>
 </head>
 
-<body>
+<body style="background: assets/images/spiration.png">
 
-	<div class="container-fluid">
+	<div class="container-fluid content center">
 		<div>
 			<div>
-				<div class="row">Game Title</div>
+				<div class="row text-warning jumbotron">
+					<h1>The Clicking of Crystals
+						<small class="text-muted">A Game</small>
+					</h1>
+				</div>
 			</div>
 			<div>
-				<div class="row">Instructions</div>
+				<div class="row card">
+					<h3 class="card-body">
+						Instructions
+						<small>
+							<p>At the beginning of the game, you, henceforth known as The Player, will be given a random number and four crystals,
+								each with a random value.The player must click these crystals to match the number given.</p>
+						</small>
+					</h3>
+				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3">Number to Guess:
-					<span id="target"></span>
+				<div class="card left bg-primary text-white">
+					<div class="card-body">
+						<div>Number to Guess:
+							<span id="target"></span>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-2">
-					<div class="row">
-						Wins:
-						<span id="wins">0</span>
-					</div>
-					<div class="row">Losses:
-						<span id="losses">0</span>
-					</div>
+				<div class="card right bg-light">
+					<div class="card-body">
+						<div class="row">
+							Wins:
+							<span id="wins">0</span>
+						</div>
+						<div class="row text-warning">Losses:
+							<span id="losses">0</span>
+						</div>
 
+					</div>
 				</div>
 
 			</div>
@@ -66,9 +85,17 @@
 				</div>
 
 			</div>
-			<div>Your score:
-				<span id="score"></span>
+			<div class="card">
+				<div class="card-header">
+					Your score:</div>
+				<div class="card-body">
+					<span id="score"></span>
+
+				</div>
+
 			</div>
+			<br>
+			<br>
 		</div>
 
 	</div>
