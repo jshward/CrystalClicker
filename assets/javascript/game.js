@@ -68,9 +68,9 @@ $(document).ready(function () {
 		numString = $(this).val();
 		cryVal = parseInt(numString);
 		playerScore = parseInt(playerScore + cryVal);
-		$("#score").html(playerScore);
 
-		if (playerScore == magicNumber) {
+
+		if (playerScore === magicNumber) {
 			console.log("win");
 
 			wins++;
@@ -83,8 +83,8 @@ $(document).ready(function () {
 
 			losses++;
 			$("#losses").html(losses);
-		}
-
+		};
+		$("#score").html(playerScore);
 
 	};
 
