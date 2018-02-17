@@ -24,9 +24,19 @@
 			<div>
 				<div class="row">Instructions</div>
 			</div>
-			<div>
-				<div class="row">Number to Guess:
+			<div class="row">
+				<div class="col-md-3">Number to Guess:
 					<span id="target"></span>
+				</div>
+				<div class="col-md-2">
+					<div class="row">
+						Wins:
+						<span id="wins">0</span>
+					</div>
+					<div class="row">Losses:
+						<span id="losses">0</span>
+					</div>
+
 				</div>
 
 			</div>
@@ -58,57 +68,106 @@
 
 	<script>
 		$(document).ready(function () {
-			//this variable holds our target number
-			var magicNumber = Math.floor((Math.random() * 120) + 19);
-			console.log(magicNumber);
-			$("#target").text(magicNumber);
+
+			var wins = 0
+			var losses = 0
+			var playerScore = 0
+			var crystalValue
+			var crystalValue2
+			var crystalValue3
+			var crystalValue4
+			var magicNumber
+
+			//this function should give us our target nuumber
+			function targetNumber() {
+				var magicNumber = parseInt(Math.floor((Math.random() * 120) + 19));
+				$("#target").text(magicNumber);
+			};
 
 			//this should give us a random value for each crystal
-			var crystalValue = Math.floor((Math.random() * 12) + 1);
-			var crystalValue2 = Math.floor((Math.random() * 12) + 1);
-			var crystalValue3 = Math.floor((Math.random() * 12) + 1);
-			var crystalValue4 = Math.floor((Math.random() * 12) + 1);
+			function values() {
+				crystalValue = Math.floor((Math.random() * 12) + 1);
+				crystalValue2 = Math.floor((Math.random() * 12) + 1);
+				crystalValue3 = Math.floor((Math.random() * 12) + 1);
+				crystalValue4 = Math.floor((Math.random() * 12) + 1);
+				console.log(crystalValue);
+				console.log(crystalValue2);
+				console.log(crystalValue3);
+				console.log(crystalValue4);
 
-			//this variable is the player's score, total what have you
-			//set to zero because apparerntly you can't increment otherwise
-			var playerScore = 0;
 
-			//prints to the page
-			$("#score").text(playerScore);
+
+
+			};
+
+			//set some variables to use later
+			function variables() {
+				var playerScore = 0;
+				var cryVal;
+				var newNum;
+			};
+
+
+			//creates the player's number
+			function score() {
+				$("#score").text(playerScore);
+			};
 
 			//this should set the button's values
-			$("#first").attr("value", crystalValue)
-			$("#second").attr("value", crystalValue2)
-			$("#third").attr("value", crystalValue3)
-			$("#fourth").attr("value", crystalValue4)
+			function buttonValues() {
+				$("#first").attr("value", crystalValue);
+				$("#second").attr("value", crystalValue2);
+				$("#third").attr("value", crystalValue3);
+				$("#fourth").attr("value", crystalValue4);
+			};
 
-			console.log(crystalValue);
-			console.log(crystalValue2);
-			console.log(crystalValue3);
-			console.log(crystalValue4);
-
+			function initialize() {
+				targetNumber()
+				values()
+				variables()
+				score()
+				buttonValues()
+			};
 
 			function crystalClick() {
+				//console.log($(this).val());
 
-				numString = $("button").attr("value");
+				numString = $(this).val();
 				cryVal = parseInt(numString);
-				newNum = playerScore + cryVal;
-				$("#score").html(newNum);
+				playerScore = playerScore + cryVal;
+				$("#score").html(playerScore);
+
+				if (playerScore === magicNumber) {
+					console.log(win);
+
+					wins++;
+					$("#wins").text(wins);
+
+
+				}
+				else if (playerScore >= magicNumber) {
+					console.log(lose);
+
+					losses++;
+					$("#losses").text(losses);
+				}
+
+
 			};
 
 
 
-			$(".btn").click(crystalClick)
 
 
 
-			//	numString = $("button").attr("value");
-			//	crysVal = parseInt(numString);
-			//	newNum = playerScore + crysVal;
+			initialize()
 
-			//});
+			$(".btn").click(crystalClick);
 
-			//$("#score").text(newNum);
+
+
+
+
 
 
 		});
