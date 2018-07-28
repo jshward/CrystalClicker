@@ -1,5 +1,6 @@
 # Crystal Clicker
 Live version: https://jshward.github.io/CrystalClicker/
+
 Built using [jQuery](https://jquery.com/).
 
 ### Instructions
